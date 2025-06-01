@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Event } from '../events/event.entity';
+import { RSVP } from '../rsvp/rsvp.entity';
 
 @Entity()
 export class User {
@@ -17,4 +18,7 @@ export class User {
 
     @OneToMany(() => Event, (event) => event.creator)
     events: Event[];
+
+    @OneToMany(() => RSVP, rsvp => rsvp.user)
+    rsvps: RSVP[];
 }

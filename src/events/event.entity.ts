@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, OneToMany } from "typeorm";
 import { User } from "../users/user.entity";
+import { RSVP } from "../rsvp/rsvp.entity";
 
 @Entity()
 export class Event {
@@ -21,7 +22,7 @@ export class Event {
     @Column('float')
     longitude: number;
 
-    @Column({ type: "datetime" })
+    @Column({ type: "timestamp" })
     date: Date;
 
     @CreateDateColumn()
@@ -29,4 +30,7 @@ export class Event {
 
     @ManyToOne(() => User, user => user.events, { eager: true })
     creator: User;
+
+    @OneToMany(() => RSVP, rsvp => rsvp.event)
+    rsvps: RSVP[];
 }
