@@ -8,7 +8,7 @@ export class SearchEventDto {
 
     @IsOptional()
     @IsString()
-    location?: string;
+    address?: string;
 
     @IsOptional()
     @IsDateString()

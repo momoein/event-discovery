@@ -6,7 +6,9 @@ export function mapEventToResponseDto(event: Event): EventResponseDto {
         id: event.id,
         name: event.name,
         description: event.description,
-        location: event.location,
+        address: event.address,
+        latitude: event.latitude,
+        longitude: event.longitude,
         date: event.date,
         creatorUsername: event.creator?.username,
     };

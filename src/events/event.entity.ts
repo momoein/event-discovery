@@ -13,7 +13,13 @@ export class Event {
     description: string;
 
     @Column()
-    location: string;
+    address: string;
+
+    @Column('float')
+    latitude: number;
+
+    @Column('float')
+    longitude: number;
 
     @Column({ type: "datetime" })
     date: Date;
